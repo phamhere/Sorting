@@ -17,7 +17,14 @@ def selection_sort(arr):
 
 
 def insertion_sort(arr):
-
+    # loop through elements in arr starting with the second element
+    for i in range(1, len(arr)):
+        # loop backwards starting from i-1 to 0
+        for j in range(i-1, -1, -1):
+            # if the second element is less than the first, swap
+            if arr[i] < arr[j]:
+                print(arr)
+                arr[i], arr[j] = arr[j], arr[i]
     return arr
 
 # STRETCH: implement the Bubble Sort function below
