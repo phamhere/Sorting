@@ -31,7 +31,13 @@ def insertion_sort(arr):
 
 
 def bubble_sort(arr):
-
+    # iterating through length of arr
+    for i in range(len(arr)):
+        """iterating through length of arr minus one since checking the j+1 element
+        and minus i since the end elements are already sorted"""
+        for j in range(len(arr) - 1 - i):
+            if arr[j + 1] < arr[j]:
+                arr[j + 1], arr[j] = arr[j], arr[j + 1]
     return arr
 
 # STRETCH: implement the Count Sort function below
