@@ -46,23 +46,29 @@ def merge_sort_in_place(arr, l, r):
 
 
 def quick_sort(arr, low, high):
+    # edge case where length of arr is 0
+    if len(arr) == 0:
+        return arr
+    # making pivot to compare LHS and RHS
     pivot = arr[0]
+    # making LHS and RHS lists to append values to later
     LHS = []
     RHS = []
+    # looping through arr and appending values to LHS or RHS if <= or > pivot
     for i in range(1, len(arr)):
         if arr[i] <= pivot:
             LHS.append(arr[i])
         else:
             RHS.append(arr[i])
-    print(LHS, RHS)
+    # if length of LHS > 1, recursive call quick_sort
     if len(LHS) > 1:
         LHS = quick_sort(LHS, 0, len(LHS) - 1)
-    elif len(RHS) > 1:
+    # if length of RHS > 1, recursive call quick_sort
+    if len(RHS) > 1:
         RHS = quick_sort(RHS, 0, len(RHS) - 1)
+    # return the separated lists together as one
     return LHS + [pivot] + RHS
 
-
-print(quick_sort([2, 1, 4, 3], 0, 3))
 # STRETCH: implement the Timsort function below
 # hint: check out https://github.com/python/cpython/blob/master/Objects/listsort.txt
 
